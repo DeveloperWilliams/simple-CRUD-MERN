@@ -1,0 +1,40 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: cursive;
+}
+.home ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  background-color: aliceblue;
+  background-color: burlywood;
+  padding: 30px;
+  gap: 10px;
+}
+.home ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.home ul li div {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+}
+button {
+  padding: 7px 10px;
+  border: 0;
+  cursor: pointer;
+}
+.del{
+    background-color: red;
+   
+}
+.edit{
+    background-color: greenyellow;
+}
