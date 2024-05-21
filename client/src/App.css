@@ -5,6 +5,7 @@
   flex-direction: column;
   text-align: center;
   font-family: cursive;
+  height: 100vh;
 }
 .home ul {
   list-style: none;
