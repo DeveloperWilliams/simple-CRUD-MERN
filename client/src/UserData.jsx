@@ -43,6 +43,16 @@ const UserData = () => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8080/users", formData);
+      setShow(false); // Close the form after successful submission
+      // Optionally, you can also clear the form data after submission
+      setForm({
+        Username: "",
+        Email: "",
+        Password: "",
+      });
+      // Optionally, fetch the updated list of users to display
+      const response = await axios.get("http://localhost:8080/users");
+      setUsers(response.data);
     } catch (error) {
       setError(error);
     }

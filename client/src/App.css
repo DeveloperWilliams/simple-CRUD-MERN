@@ -50,12 +50,13 @@ button {
   padding: 10px;
 }
 .myform {
-  position: relative;
-  display: flex;justify-content: center;
-  align-items: center;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0px;
 }
 .form {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
     0px 25px 20px -20px rgba(0, 0, 0, 0.45);
@@ -64,7 +65,7 @@ button {
   width: 300px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  top: 30px;
   flex-direction: column;
 }
 .form div {
