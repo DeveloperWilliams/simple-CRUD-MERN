@@ -10,17 +10,24 @@
 .home ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   flex-direction: column;
   background-color: aliceblue;
   background-color: burlywood;
-  padding: 30px;
+  padding: 10px;
   gap: 10px;
+  width: 50%;
 }
 .home ul li {
   display: flex;
-  flex-direction: column;
   gap: 8px;
+  justify-content: center;
+  gap: 20px;
+  color: whitesmoke;
+  align-items: center;
+}
+.home ul li h3 {
+  color: cornflowerblue;
 }
 .home ul li div {
   display: flex;
@@ -32,10 +39,46 @@ button {
   border: 0;
   cursor: pointer;
 }
-.del{
-    background-color: red;
-   
+.del {
+  background-color: red;
 }
-.edit{
-    background-color: greenyellow;
+.edit {
+  background-color: greenyellow;
+}
+.add {
+  background-color: rgba(47, 165, 255, 0.733);
+  padding: 10px;
+}
+.myform {
+  position: relative;
+  display: flex;justify-content: center;
+  align-items: center;
+}
+.form {
+  position: absolute;
+  z-index: 1000;
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45),
+    0px 25px 20px -20px rgba(0, 0, 0, 0.45);
+  height: 400px;
+  background-color: cadetblue;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+.form input {
+  width: 90%;
+  height: 40px;
+  outline: none;
+  font-family: cursive;
+  padding: 0px 8px;
 }
