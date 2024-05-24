@@ -101,16 +101,10 @@ const UserData = () => {
           <li>
             <h3>Name</h3> {user.Username} <h3>Email</h3> {user.Email}
             <div>
-              <button
-                className="edit"
-                onClick={() => handleEdit(user)}
-              >
+              <button className="edit" onClick={() => handleEdit(user)}>
                 Edit
               </button>
-              <button
-                className="del"
-                onClick={() => handleDelete(user._id)}
-              >
+              <button className="del" onClick={() => handleDelete(user._id)}>
                 Delete
               </button>
             </div>
