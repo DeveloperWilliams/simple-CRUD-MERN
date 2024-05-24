@@ -12,6 +12,8 @@ const UserData = () => {
     Email: "",
     Password: "",
   });
+  const [editMode, setEditMode] = useState(false);
+  const [editUserId, setEditUserId] = useState(null);
 
   useEffect(() => {
     const displayUsers = async () => {
@@ -42,15 +44,18 @@ const UserData = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/users", formData);
-      setShow(false); // Close the form after successful submission
-      // Optionally, you can also clear the form data after submission
+      if (editMode) {
+        await axios.put(`http://localhost:8080/users/${editUserId}`, formData);
+      } else {
+        await axios.post("http://localhost:8080/users", formData);
+      }
+      setShow(false);
+      setEditMode(false);
       setForm({
         Username: "",
         Email: "",
         Password: "",
       });
-      // Optionally, fetch the updated list of users to display
       const response = await axios.get("http://localhost:8080/users");
       setUsers(response.data);
     } catch (error) {
@@ -63,6 +68,17 @@ const UserData = () => {
     setForm({ ...formData, [e.target.name]: value });
   };
 
+  const handleEdit = (user) => {
+    setShow(true);
+    setEditMode(true);
+    setEditUserId(user._id);
+    setForm({
+      Username: user.Username,
+      Email: user.Email,
+      Password: user.Password,
+    });
+  };
+
   return (
     <div className="home">
       <h1>User List</h1>
@@ -70,6 +86,12 @@ const UserData = () => {
         className="add"
         onClick={() => {
           setShow(!show);
+          setEditMode(false);
+          setForm({
+            Username: "",
+            Email: "",
+            Password: "",
+          });
         }}
       >
         Add User
@@ -79,12 +101,15 @@ const UserData = () => {
           <li>
             <h3>Name</h3> {user.Username} <h3>Email</h3> {user.Email}
             <div>
-              <button className="edit">Edit</button>
+              <button
+                className="edit"
+                onClick={() => handleEdit(user)}
+              >
+                Edit
+              </button>
               <button
                 className="del"
-                onClick={() => {
-                  handleDelete(user._id);
-                }}
+                onClick={() => handleDelete(user._id)}
               >
                 Delete
               </button>
@@ -95,14 +120,15 @@ const UserData = () => {
       {show && (
         <div className="myform">
           <form className="form" onSubmit={handleSubmit}>
-            <h3>Add User</h3>
+            <h3>{editMode ? "Edit User" : "Add User"}</h3>
             <div>
               <input
                 type="text"
-                placeholder="Your Email Address"
+                placeholder="Your Username"
                 name="Username"
                 value={formData.Username}
                 onChange={handleChange}
+                required
               />
               <input
                 type="email"
@@ -110,6 +136,7 @@ const UserData = () => {
                 name="Email"
                 value={formData.Email}
                 onChange={handleChange}
+                required
               />
               <input
                 type="Password"
@@ -117,8 +144,9 @@ const UserData = () => {
                 placeholder="Your Password"
                 name="Password"
                 onChange={handleChange}
+                required
               />
-              <button type="submit">Submit</button>
+              <button type="submit">{editMode ? "Update" : "Submit"}</button>
             </div>
           </form>
         </div>
