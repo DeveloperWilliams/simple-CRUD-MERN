@@ -56,12 +56,6 @@ This repository contains the source code for an MERN Application, implemented us
     ```
 
 
-### Usage
-Once the website is running, the  sections will be prominently displayed at the top of the page. Users can engage with these section by:
-- Reading the compelling headline and understanding the main message or value proposition of the gym.
-- Watching an engaging video or viewing an attractive image that showcases the gym's atmosphere and facilities.
-- Clicking on the call-to-action buttons to perform desired actions, such as exploring classes, signing up for a membership, or contacting the app.
-
 
 ### Contributing
 
