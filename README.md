@@ -7,7 +7,7 @@
 This repository contains the source code for an MERN Application, implemented using MongoDB, Express Js, React Js, Node Js
 
 
-## Technologies Used:
+## Technologies Used::
 
 * MongoDB
 * Express Js
